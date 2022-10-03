@@ -6,11 +6,20 @@
     box-sizing: border-box;
     margin: 0;
     transition: all 0.3s;
+    outline: 2px;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 7rem;
+    scroll-padding-top: 5rem;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    position: relative;
 }
 
 
@@ -21,7 +30,7 @@ html {
     padding: 0;
     margin: 0;
     background-image: url(../2-assets/img/1.webp);
-    filter: brightness(.8);
+    filter: brightness(.7);
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -69,6 +78,7 @@ header {
 
 #navbar {
     width: 100%;
+    overflow: hidden;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -188,8 +198,23 @@ li, a {
 
 /* ---------- ABOUT SECTION ---------- */
 #about {
-    background-color: black;
-    height: 800px;
+    /* background-color: black; */
+    background-image: url(../2-assets/img/b7.jpeg);
+    height: 700px;
+    position: relative;
+    overflow-y: visible;
+}
+
+#about::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    /* z-index: -1; */
+    right: 0;
+    top: 100%;
+    /* bottom: 0; */
+    height: 100%;
+    background: linear-gradient(to bottom, black, 20%, transparent);
 }
 
 .about-title {
@@ -237,50 +262,60 @@ li, a {
     font-size: 35px;
     display: flex;
     justify-content: center;
-    margin-top: 80px;
+    flex-direction: column;
+    margin-top: 20px;
     isolation: isolate;
-    gap: 35px;
+    gap: 15px;
+}
+
+.about-text1 {
+    color: white;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    isolation: isolate;
+    margin: 0 100px;
+    margin-top: 40px;
+}
+
+.about-text2 {
+    color: white;
+    font-size: 30px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-right: 100px;
+    /* text-align: justify; */
+    isolation: isolate;
+    gap: 20px;
 }
 
 .about-text img {
-    min-width: 650px;
-    margin-left: 100px;
-    /* flex-basis: 600px; */
+    min-width: 400px;
+    margin-left: 120px;
     height: auto;
-    border-radius: 40px;
+    border-radius: 10px;
     overflow: hidden;
-    /* float: right; */
-    /* display: inline-block; */
-    /* padding: 0.25em 1.5em; */
-}
-
-.about-text p {
-    width: auto;
-    margin-right: 100px;
-}
-
-.about-img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
+    border: 2px solid #ddd;
     cursor: pointer;
-    /* box-shadow:
-    inset 0 0 10px #ffa07a,    
-    inset 20px 0 200px #800000,  
-    inset -20px 0 200px #0000cd, 
-    inset 20px 0 200px #800000,  
-    inset -20px 0 200px #0000cd, 
-    5px 0 20px #ffa07a,           
-    -5px 0 20px #800000,        
-    5px 0 20px #0000cd;          */
+    margin-left: 100px;
 }
 
-.about-img:hover {
+.bold {
+    font-weight: bold;
+}
+
+/* .about-img {
+    cursor: pointer;
+    margin-left: 100px;
+} */
+
+/* .about-img:hover {
     animation: shake 0.5s;
     animation-iteration-count: infinite;
-}
+} */
 
-@keyframes shake {
+/* @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     10% { transform: translate(-1px, -2px) rotate(-1deg); }
     20% { transform: translate(-3px, 0px) rotate(1deg); }
@@ -292,13 +327,13 @@ li, a {
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
+} */
 
 .about-container {
     overflow: hidden;
 }
 
-.animated:nth-child(0) {
+/* .animated:nth-child(0) {
     background-color: black;
 }
 
@@ -353,15 +388,17 @@ li, a {
         opacity: 1;
         transform: translateX(0px);
     }
-}
+} */
 
 /* ---------- LOCATION SECTION ---------- */
 #location {
-    background-color: black;
-    height: 800px;
+    /* background: linear-gradient(45deg, #555, 65%, black); */
+    background-image: url(../2-assets/img/b5.jpeg);
+    height: 900px;
 }
 
 .location-title {
+    padding-top: 2.5rem;
     display: flex;
     color: rgb(255, 240, 245);
 }
@@ -403,41 +440,47 @@ li, a {
 .location {
     display: flex;
     justify-content: center;
-    gap: 35px;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* .location-text {
-    translate: -200% 0;
-} */
+.iframe {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
-.location iframe {
-    border-radius: 20px;
+.iframe iframe {
+    border-radius: 10px;
+    width: 900px;
+    height: 600px;
 }
 
 body > div > div[class*="-title"]:first-child {
-    margin-bottom: 3.5rem !important;
+    margin-bottom: 3rem !important;
 }
 
-.line {
+/* .line {
     border-left: 10px solid darkorange;
-    /* width: 8px; */
     overflow: hidden;
     padding-left: 2rem;
     height: 450px;
     border-radius: 5px 0 0 5px;
-}
+} */
 
-.location-h1 {
+/* .location-h1 {
     color: white;
     font-size: 30px;
     font-family: 'Courgette', cursive;
-}
+} */
 
 .location-h3 {
     color: rgba(255, 255, 255, 0.9);
     font-size: 32px;
     font-family: 'Niconne', cursive;
-    width: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -496,7 +539,7 @@ body > div > div[class*="-title"]:first-child {
 .h-1 p {
     color: white;
     font-size: 25px;
-    padding: 0 60px;
+    padding: 0 65px;
     text-align: justify;
     text-justify: inter-word;
 }
@@ -513,7 +556,7 @@ body > div > div[class*="-title"]:first-child {
 
 .h-2 img {
     width: 320px;
-    padding-left: 60px;
+    padding-left: 65px;
     justify-content: flex-start;
     align-items: start;
     gap: 40px;
@@ -524,7 +567,7 @@ body > div > div[class*="-title"]:first-child {
     width: auto;
     height: auto;
     font-size: 25px;
-    padding-right: 60px;
+    padding-right: 65px;
     justify-content: flex-end;
     align-items: flex-end;
     text-align: justify;
@@ -539,7 +582,7 @@ body > div > div[class*="-title"]:first-child {
 
 .h-3 p {
     color: white;
-    padding-left: 60px;
+    padding-left: 65px;
     font-size: 25px;
     text-align: justify;
     text-justify: inter-word;
@@ -547,14 +590,14 @@ body > div > div[class*="-title"]:first-child {
 
 .h-3 img {
     width: 600px;
-    padding-right: 60px;
+    padding-right: 65px;
 }
 
 
 
 /* ---------- GALLERY SECTION ---------- */
 #gallery {
-    background-color: black;
+    background: linear-gradient(45deg, #1f1f1f, 65%, black);
     height: 1400px;
 }
 
@@ -563,7 +606,7 @@ body > div > div[class*="-title"]:first-child {
     display: flex;
     color: rgb(255, 240, 245);
 }
- 
+
 .gallery-title:before,
 .gallery-title:after {
     content: '';
@@ -604,21 +647,43 @@ body > div > div[class*="-title"]:first-child {
     column-gap: 25px;
     row-gap: 30px;
     place-items: center;
+    grid-auto-flow: row;
     margin: 0 25px;
+}
+
+.grid a {
+    position: relative;
 }
 
 .img {
     border-radius: 25px;
     width: 430px;
     height: auto;
-    transition: 0.3s ease;
-    box-shadow: 2px 2px 10px ghostwhite;
+    transition: opacity 0.15s ease, transform .15s ease !important;
+    box-shadow: 3.5px 3.5px 8px ghostwhite;
     cursor: pointer;
 }
 
-.img:hover {
-    transform: scale(1.05);
-    filter: opacity(55%);
+.grid a:hover img {
+    transform: scale(1.02);
+    opacity: .35 !important;
+}
+
+.grid .p {
+    border-radius: 25px;
+    transition: 0.15s ease;
+    cursor: pointer;
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    z-index: 100;
+}
+
+.p:hover {
+    opacity: 0.9;
+    font-size: 50px;
 }
 
 
@@ -678,17 +743,18 @@ body > div > div[class*="-title"]:first-child {
 }
 
 .kenny {
-    background-color: rgb(230, 130, 95);
+    background-image: url(../2-assets/img/b3.jpeg);
     height: 750px;
-    width: 500px;
+    width: 520px;
     border-radius: 25px;
+    z-index: 100;
 }
 
 .budi {
-    background-color: rgb(230, 130, 95);
+    background-image: url(../2-assets/img/b3.jpeg);
     align-items: center;
     height: 750px;
-    width: 500px;
+    width: 520px;
     border-radius: 25px;
 }
 
@@ -745,6 +811,7 @@ body > div > div[class*="-title"]:first-child {
     margin-left: 25px;
 }
 
+
 .kenny-logo svg, .budi-logo svg {
     width: 80px;
 }
@@ -761,7 +828,9 @@ body > div > div[class*="-title"]:first-child {
 
 .masukkan {
     display: flex;
-    background-color: rgb(230, 130, 95);
+    background-image: url(../2-assets/img/b4.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
     flex-direction: column;
     height: 450px;
     width: 1100px;
@@ -873,7 +942,6 @@ body > div > div[class*="-title"]:first-child {
 
 [data-fade="down"] {
     translate: 0 -7rem;
-
 }
 
 [data-fade].show {
