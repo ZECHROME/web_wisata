@@ -36,10 +36,28 @@ form.addEventListener("submit", e => {
     e.preventDefault();
 
     let name = e.target.querySelector("[data-input-name]").value;
-    let date = e.target.querySelector("[data-input-date]").value;
+    // let date = e.target.querySelector("[data-input-date]").value;
     let reason = e.target.querySelector("[data-input-reason]").value;
 
     window.open(
-        `https://wa.me/6289665319781?text=${encodeURIComponent(`*Nama :* ${name}\n*Tanggal :* ${date}\n\n*Alasan :* ${reason}`)}`
+        `https://wa.me/6289665319781?text=${encodeURIComponent(`*Nama :* ${name}\n*Alasan :* ${reason}`)}`
     );
 })
+
+
+
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav");
+const header = document.querySelector("#header");
+
+
+hamburger.addEventListener("click", ()=> {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
+  header.classList.toggle("active");
+})
+
+document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}))
